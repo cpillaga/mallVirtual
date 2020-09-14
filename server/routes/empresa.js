@@ -83,7 +83,7 @@ app.get('/empresa/buscar/:razon', verificaToken, function(req, res) {
     let razonB = req.params.razon;
     let regex = new RegExp(razonB, 'i');
 
-    Empresa.find({ businessName: regex }, 'ruc razonSocial correo telefono direccion representante')
+    Empresa.find({ razonSocial: regex }, 'ruc razonSocial correo telefono direccion representante')
         .exec((err, empresa) => {
             if (err) {
                 return res.status(400).json({
