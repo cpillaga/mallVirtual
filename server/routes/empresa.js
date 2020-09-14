@@ -58,7 +58,7 @@ app.post('/empresa/login', function(req, res) {
 
 app.get('/empresa', verificaToken, (req, res) => {
     // console.log("Entro al metodo");
-    Empresa.find({ status: true }, 'ruc razonSoial representante direccion telefono correo') //Lo que esta dentro de apostrofe son campos a mostrar
+    Empresa.find({ status: true }, 'ruc razonSocial representante direccion telefono correo') //Lo que esta dentro de apostrofe son campos a mostrar
         .exec((err, empresa) => {
             if (err) {
                 return res.status(400).json({
