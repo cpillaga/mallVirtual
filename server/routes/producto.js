@@ -10,7 +10,7 @@ let Producto = require("../models/producto");
 //mostrar todas las categorias
 //=====================================
 
-app.get("/productos", verificaToken, (req, res) => {
+app.get("/productos/buscar/:empresa", verificaToken, (req, res) => {
     //traer todos los productos
     let empresaB = req.params.empresa;
 
@@ -29,12 +29,17 @@ app.get("/productos", verificaToken, (req, res) => {
 
             let lngProd = productos.length;
 
-            res.json({
-                ok: true,
-                productos,
-                lngProd
-            });
 
+            for (let i = 0; i < lngProd; i++) {
+                const element = productos[i];
+
+                if (element.categoria.empresa == empresaB) {
+                    res.json({
+                        ok: true,
+                        productos: productos[i]
+                    });
+                }
+            }
 
         });
 
