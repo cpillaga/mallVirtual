@@ -2,6 +2,7 @@ const express = require("express");
 
 let app = express();
 const { verificaToken } = require('../middlewares/autenticacion');
+const producto = require("../models/producto");
 
 let Producto = require("../models/producto");
 
@@ -16,7 +17,7 @@ app.get("/productos/:empresa", verificaToken, (req, res) => {
     let desde = req.query.desde || 0;
     desde = Number(desde);
 
-    catEmp = categoria.empresa;
+    catEmp = producto.categoria.empresa;
 
     if (catEmp == empresaB) {
         Producto.find()
