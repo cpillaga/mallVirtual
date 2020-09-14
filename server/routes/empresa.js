@@ -56,9 +56,10 @@ app.post('/empresa/login', function(req, res) {
     });
 });
 
-app.get('/empresa', verificaToken, (req, res) => {
-    // console.log("Entro al metodo");
-    Empresa.find({ estado: true }, 'ruc razonSocial representante direccion telefono correo') //Lo que esta dentro de apostrofe son campos a mostrar
+app.get('/empresa/:tipo', verificaToken, (req, res) => {
+    let tipoB = req.params.tipo;
+
+    Empresa.find({ estado: true, tipo: tipoB }, 'ruc razonSocial representante direccion telefono correo') //Lo que esta dentro de apostrofe son campos a mostrar
         .populate('tipo')
         .exec((err, empresa) => {
             if (err) {
