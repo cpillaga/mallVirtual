@@ -18,7 +18,7 @@ app.get("/productos", verificaToken, (req, res) => {
     desde = Number(desde);
 
     Producto.find()
-        .populate('categoria', 'descripcion')
+        .populate('categoria')
         .exec((err, productos) => {
             if (err) {
                 res.status(500).json({
