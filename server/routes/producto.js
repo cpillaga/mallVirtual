@@ -27,9 +27,12 @@ app.get("/productos", verificaToken, (req, res) => {
                 });
             }
 
+            let lngProd = productos.length;
+
             res.json({
                 ok: true,
                 productos,
+                lngProd
             });
 
 
