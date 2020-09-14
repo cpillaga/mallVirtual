@@ -99,7 +99,7 @@ app.get('/empresa/buscar/:razon', verificaToken, function(req, res) {
         });
 });
 
-app.post('/empresa', verificaToken, function(req, res) {
+app.post('/empresa', function(req, res) {
     let body = req.body;
 
     let empresa = new Empresa({
