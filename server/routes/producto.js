@@ -1,6 +1,7 @@
 const express = require("express");
 
 let app = express();
+const { verificaToken } = require('../middlewares/autenticacion');
 
 let Producto = require("../models/producto");
 
@@ -8,7 +9,7 @@ let Producto = require("../models/producto");
 //mostrar todas las categorias
 //=====================================
 
-app.get("/productos", (req, res) => {
+app.get("/productos", verificaToken, (req, res) => {
     //traer todos los productos
 
     let desde = req.query.desde || 0;
@@ -28,7 +29,7 @@ app.get("/productos", (req, res) => {
             });
         });
 });
-app.get("/productos-categoria/:id", (req, res) => {
+app.get("/productos-categoria/:id", verificaToken, (req, res) => {
     //traer todos los productos
     let id = req.params.id;
 
@@ -57,7 +58,7 @@ app.get("/productos-categoria/:id", (req, res) => {
 //obtener un producto por id
 //=====================================
 
-app.get("/productos/:id", (req, res) => {
+app.get("/productos/:id", verificaToken, (req, res) => {
     let id = req.params.id;
     Producto.findById(id)
         .populate('categoria', 'descripcion')
@@ -87,7 +88,7 @@ app.get("/productos/:id", (req, res) => {
 //crear un nuevo producto
 //=====================================
 
-app.post("/productos", (req, res) => {
+app.post("/productos", verificaToken, (req, res) => {
     let body = req.body;
     let producto = new Producto({
         nombre: body.nombre,
@@ -116,7 +117,7 @@ app.post("/productos", (req, res) => {
 //=====================================
 //actualizar producto
 //=====================================
-app.put("/productos/:id", (req, res) => {
+app.put("/productos/:id", verificaToken, (req, res) => {
     let id = req.params.id;
     let body = req.body;
 
@@ -170,7 +171,7 @@ app.put("/productos/:id", (req, res) => {
 //borrar producto
 //=====================================
 
-app.delete("/productos/:id", (req, res) => {
+app.delete("/productos/:id", verificaToken, (req, res) => {
     let id = req.params.id;
     Producto.findByIdAndRemove(id, (err, productoDB) => {
         if (err) {
@@ -198,7 +199,7 @@ app.delete("/productos/:id", (req, res) => {
 //Filtrar un producto
 //=====================================
 
-app.get("/productos/buscar/:termino", (req, res) => {
+app.get("/productos/buscar/:termino", verificaToken, (req, res) => {
     let termino = req.params.termino;
     let regex = new RegExp(termino, "i");
     Producto.find({

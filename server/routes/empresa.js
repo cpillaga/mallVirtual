@@ -59,6 +59,7 @@ app.post('/empresa/login', function(req, res) {
 app.get('/empresa', verificaToken, (req, res) => {
     // console.log("Entro al metodo");
     Empresa.find({ estado: true }, 'ruc razonSocial representante direccion telefono correo') //Lo que esta dentro de apostrofe son campos a mostrar
+        .populate('tipo')
         .exec((err, empresa) => {
             if (err) {
                 return res.status(400).json({
@@ -84,6 +85,7 @@ app.get('/empresa/buscar/:razon', verificaToken, function(req, res) {
     let regex = new RegExp(razonB, 'i');
 
     Empresa.find({ razonSocial: regex }, 'ruc razonSocial correo telefono direccion representante')
+        .populate('tipo')
         .exec((err, empresa) => {
             if (err) {
                 return res.status(400).json({
@@ -109,7 +111,8 @@ app.post('/empresa', verificaToken, function(req, res) {
         direccion: body.direccion,
         telefono: body.telefono,
         correo: body.correo,
-        password: bcrypt.hashSync(body.password, 10)
+        password: bcrypt.hashSync(body.password, 10),
+        tipo: body.tipo
     });
 
     empresa.save((err, empresaDB) => {
@@ -131,7 +134,7 @@ app.post('/empresa', verificaToken, function(req, res) {
 app.put('/empresa/:id', verificaToken, function(req, res) {
     let id = req.params.id;
 
-    let body = _.pick(req.body, ['ruc', 'razonSocial', 'representante', 'telefono', 'correo', 'password']);
+    let body = _.pick(req.body, ['ruc', 'razonSocial', 'representante', 'telefono', 'correo', 'password', 'tipo']);
 
 
     if (body.password != null) {

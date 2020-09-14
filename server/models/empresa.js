@@ -37,6 +37,11 @@ let empresaSchema = new Schema({
     estado: {
         type: String,
         default: 'true'
+    },
+    tipo: {
+        type: Schema.Types.ObjectId,
+        ref: 'Tipo',
+        required: [true, 'El tipo es obligatorio']
     }
 });
 
