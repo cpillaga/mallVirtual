@@ -56,6 +56,9 @@ app.post('/empresa/login', function(req, res) {
     });
 });
 
+/*
+    Buscar empresa por tipo
+*/
 app.get('/empresa/:tipo', verificaToken, (req, res) => {
     let tipoB = req.params.tipo;
 
@@ -158,7 +161,6 @@ app.put('/empresa/:id', verificaToken, function(req, res) {
         });
     });
 });
-
 
 app.delete('/empresa/:id', verificaToken, function(req, res) {
     let id = req.params.id;

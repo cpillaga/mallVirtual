@@ -7,11 +7,14 @@ let app = express();
 const { verificaToken } = require('../middlewares/autenticacion');
 
 //=====================================
-//mostrar todas las categorias
+//mostrar todas las categorias de una empresa
 //=====================================
 
-app.get('/categoria', verificaToken, (req, res) => {
-    Categoria.find({})
+app.get('/categoria/:empresa', verificaToken, (req, res) => {
+
+    let empresaB = req.params.empresa;
+
+    Categoria.find({ empresa: empresaB })
         .sort('descripcion')
         .populate('empresa', 'razonSocial')
         .exec((err, categoria) => {

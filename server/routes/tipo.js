@@ -155,7 +155,6 @@ app.delete('/tipo/:id', verificaToken, (req, res) => {
 //=====================================
 //Filtrar una tipo
 //=====================================
-
 app.get('/tipo/buscar/:termino', verificaToken, (req, res) => {
     let termino = req.params.termino;
     let regex = new RegExp(termino, 'i');
