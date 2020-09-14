@@ -9,30 +9,36 @@ let Producto = require("../models/producto");
 //mostrar todas las categorias
 //=====================================
 
-app.get("/productos", verificaToken, (req, res) => {
+app.get("/productos/:empresa", verificaToken, (req, res) => {
     //traer todos los productos
+    let empresaB = req.params.empresa;
 
     let desde = req.query.desde || 0;
     desde = Number(desde);
-    Producto.find()
-        .populate('categoria', 'descripcion')
-        .exec((err, productos) => {
-            if (err) {
-                res.status(500).json({
-                    ok: false,
-                    err,
+
+    catEmp = categoria.empresa;
+
+    if (catEmp == empresaB) {
+        Producto.find()
+            .populate('categoria', 'descripcion')
+            .exec((err, productos) => {
+                if (err) {
+                    res.status(500).json({
+                        ok: false,
+                        err,
+                    });
+                }
+                res.json({
+                    ok: true,
+                    productos,
                 });
-            }
-            res.json({
-                ok: true,
-                productos,
             });
-        });
+    }
 });
+
 app.get("/productos-categoria/:id", verificaToken, (req, res) => {
     //traer todos los productos
     let id = req.params.id;
-
 
     let desde = req.query.desde || 0;
     desde = Number(desde);
