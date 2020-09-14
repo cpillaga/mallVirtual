@@ -4,11 +4,13 @@ let Categoria = require('../models/categoria');
 
 let app = express();
 
+const { verificaToken } = require('../middlewares/autenticacion');
+
 //=====================================
 //mostrar todas las categorias
 //=====================================
 
-app.get('/categoria', (req, res) => {
+app.get('/categoria', verificaToken, (req, res) => {
     Categoria.find({})
         .sort('descripcion')
         .populate('empresa', 'razonSocial')
@@ -30,7 +32,7 @@ app.get('/categoria', (req, res) => {
 //mostrar una categoria por id.
 //=====================================
 
-app.get('/categoria/:id', (req, res) => {
+app.get('/categoria/:id', verificaToken, (req, res) => {
     let id = req.params.id;
     Categoria.findById(id, (err, categoriaDB) => {
         if (err) {
@@ -59,7 +61,7 @@ app.get('/categoria/:id', (req, res) => {
 //crear nueva categoria
 //=====================================
 
-app.post('/categoria', (req, res) => {
+app.post('/categoria', verificaToken, (req, res) => {
     let body = req.body;
     let categoria = new Categoria({
         descripcion: body.descripcion,
@@ -91,7 +93,7 @@ app.post('/categoria', (req, res) => {
 //actualizar nueva categoria
 //=====================================
 
-app.put('/categoria/:id', (req, res) => {
+app.put('/categoria/:id', verificaToken, (req, res) => {
     let id = req.params.id;
     let body = req.body;
 
@@ -127,7 +129,7 @@ app.put('/categoria/:id', (req, res) => {
 //eliminar nueva categoria
 //=====================================
 
-app.delete('/categoria/:id', (req, res) => {
+app.delete('/categoria/:id', verificaToken, (req, res) => {
     let id = req.params.id;
 
     Categoria.findByIdAndRemove(id, (err, categoriaBD) => {
@@ -156,7 +158,7 @@ app.delete('/categoria/:id', (req, res) => {
 //Filtrar una categoria
 //=====================================
 
-app.get('/categoria/buscar/:termino', (req, res) => {
+app.get('/categoria/buscar/:termino', verificaToken, (req, res) => {
     let termino = req.params.termino;
     let regex = new RegExp(termino, 'i');
     Categoria.find({
