@@ -17,24 +17,25 @@ app.get("/productos/:empresa", verificaToken, (req, res) => {
     let desde = req.query.desde || 0;
     desde = Number(desde);
 
-    catEmp = producto.categoria.empresa;
+    Producto.find()
+        .populate('categoria', 'descripcion')
+        .exec((err, productos) => {
+            if (err) {
+                res.status(500).json({
+                    ok: false,
+                    err,
+                });
+            }
 
-    if (catEmp == empresaB) {
-        Producto.find()
-            .populate('categoria', 'descripcion')
-            .exec((err, productos) => {
-                if (err) {
-                    res.status(500).json({
-                        ok: false,
-                        err,
-                    });
-                }
+            if (productos.categoria.empresa._id = empresaB) {
                 res.json({
                     ok: true,
                     productos,
                 });
-            });
-    }
+            }
+
+        });
+
 });
 
 app.get("/productos-categoria/:id", verificaToken, (req, res) => {
