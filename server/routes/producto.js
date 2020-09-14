@@ -116,7 +116,6 @@ app.post("/productos", (req, res) => {
 //=====================================
 //actualizar producto
 //=====================================
-
 app.put("/productos/:id", (req, res) => {
     let id = req.params.id;
     let body = req.body;

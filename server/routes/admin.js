@@ -63,8 +63,6 @@ app.post('/admin', function(req, res) {
         password: bcrypt.hashSync(body.password, 10)
     });
 
-
-
     admin.save((err, adminDB) => {
         if (err) {
             return res.status(400).json({

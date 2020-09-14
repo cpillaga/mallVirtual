@@ -12,7 +12,7 @@ const { verificaToken } = require('../middlewares/autenticacion');
 
 app.use(cors({ origin: '*' }));
 
-app.post('/empresa/login', verificaToken, verificaToken, function(req, res) {
+app.post('/empresa/login', function(req, res) {
     let body = req.body;
 
     Empresa.findOne({ correo: body.correo }, (err, empresaDB) => {
