@@ -29,15 +29,17 @@ app.get("/productos/buscar/:empresa", verificaToken, (req, res) => {
 
             let lngProd = productos.length;
 
+            let aux = 0;
 
-            for (let i = 0; i < lngProd; i++) {
+            for (let i = 0; i <= lngProd; i++) {
                 const element = productos[i];
 
                 if (element.categoria.empresa == empresaB) {
                     res.json({
                         ok: true,
-                        productos: productos[i]
+                        productos: productos[aux]
                     });
+                    aux = aux + 1;
                 }
             }
 
