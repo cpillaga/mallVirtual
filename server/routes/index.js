@@ -13,5 +13,6 @@ app.use(require('./upload'));
 app.use(require('./imagenes'));
 app.use(require('./metodoPago'));
 app.use(require('./tipo'));
+app.use(require('./compra'));
 
 module.exports = app;

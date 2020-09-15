@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 
 
-let carritoSchema = new Schema({
+let compraSchema = new Schema({
     cantidad: {
         type: Number,
         required: [true, 'La cantidad es necesaria'],
@@ -16,18 +16,18 @@ let carritoSchema = new Schema({
         type: Number,
         required: [true, 'El subtotal es necesario']
     },
-    // iva: {
-    //     type: Number,
-    //     required: [true, 'El iva es necesario']
-    // },
-    // descuento: {
-    //     type: Number,
-    //     required: [true, 'El descuento es necesario']
-    // },
-    // total: {
-    //     type: Number,
-    //     required: [true, 'El total es necesario']
-    // },
+    iva: {
+        type: Number,
+        required: [true, 'El iva es necesario']
+    },
+    descuento: {
+        type: Number,
+        required: [true, 'El descuento es necesario']
+    },
+    total: {
+        type: Number,
+        required: [true, 'El total es necesario']
+    },
     usuario: {
         type: Schema.Types.ObjectId,
         ref: 'Usuario',
@@ -36,4 +36,4 @@ let carritoSchema = new Schema({
 });
 
 
-module.exports = mongoose.model('Carrito', carritoSchema);
+module.exports = mongoose.model('compra', compraSchema);

@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require('mongoose');
+const carrito = require("../models/carrito");
 
 
 let app = express();
@@ -76,17 +77,16 @@ app.get("/carritos/:id", (req, res) => {
 //=====================================
 //crear un nuevo carrito
 //=====================================
-
 app.post("/carritos", (req, res) => {
     let body = req.body;
     let carrito = new Carrito({
         cantidad: body.cantidad,
         producto: body.producto,
         subtotal: body.subtotal,
-        iva: body.iva,
-        descuento: body.descuento,
-        total: body.total,
-        usuario: body.usuario,
+        // iva: body.iva,
+        // descuento: body.descuento,
+        // total: body.total,
+        // usuario: body.usuario,
     });
 
     carrito.save((err, carritoBD) => {
@@ -106,7 +106,6 @@ app.post("/carritos", (req, res) => {
 //=====================================
 //actualizar carrito
 //=====================================
-
 app.put("/carritos/:id", (req, res) => {
     let id = req.params.id;
     let body = req.body;
@@ -135,6 +134,9 @@ app.put("/carritos/:id", (req, res) => {
             carritoBD.cantidad = body.cantidad;
             carritoBD.producto = body.producto;
             carritoBD.subtotal = body.subtotal;
+            // carritoBD.descuento = body.descuento;
+            // carritoBD.iva = body.iva;
+            // carritoBD.total = body.total;
 
             carritoBD.save((err, carritoGuardado) => {
                 if (err) {
@@ -157,7 +159,6 @@ app.put("/carritos/:id", (req, res) => {
 //=====================================
 //borrar carrito
 //=====================================
-
 app.delete("/carritos/:id", (req, res) => {
     let id = req.params.id;
     Carrito.findByIdAndRemove(id, (err, carritoDB) => {
@@ -211,10 +212,10 @@ app.delete("/carritos-usuario/:id", (req, res) => {
         });
     });
 });
+
 //=====================================
 //borrar carrito x producto
 //=====================================
-
 app.delete("/carritos/buscar/:id", (req, res) => {
     let id = req.params.id;
     Carrito.findOneAndRemove({
@@ -244,7 +245,6 @@ app.delete("/carritos/buscar/:id", (req, res) => {
 // =====================================
 // Buscar un carrito x producto
 // =====================================
-
 app.get("/carritos/buscar/:termino&:id", (req, res) => {
     let termino = req.params.termino;
     let id = req.params.id;
@@ -271,10 +271,10 @@ app.get("/carritos/buscar/:termino&:id", (req, res) => {
             });
         });
 });
+
 //=====================================
 //Sumar carritos de un usuario
 //=====================================
-
 app.get("/carritos-suma/:id", (req, res) => {
     let id = req.params.id;
     console.log(res.json);
@@ -333,31 +333,5 @@ app.get("/carritos-count/:id", (req, res) => {
 
 });
 
-//=====================================
-//Filtrar un producto
-//=====================================
-
-// app.get("/productos/buscar/:termino", (req, res) => {
-//     let termino = req.params.termino;
-//     let regex = new RegExp(termino, "i");
-//     Producto.find({
-//             nombre: regex,
-//         })
-//         .sort("nombre")
-//         .populate('categoria', 'descripcion')
-//         .exec((err, productos) => {
-//             if (err) {
-//                 res.status(500).json({
-//                     ok: false,
-//                     err,
-//                 });
-//             }
-
-//             res.json({
-//                 ok: true,
-//                 productos,
-//             });
-//         });
-// });
 
 module.exports = app;
