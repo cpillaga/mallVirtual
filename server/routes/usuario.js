@@ -87,11 +87,11 @@ app.post("/usuarios", (req, res) => {
 // =====================================
 // Buscar un usuario x nombre
 // =====================================
-
 app.get("/usuarios/buscar/:termino", (req, res) => {
     let termino = req.params.termino;
+    let regex = new RegExp(termino, "i");
     Usuario.find({
-        nombre: termino,
+        nombre: regex,
     }).exec((err, usuarios) => {
         if (err) {
             return res.status(500).json({
