@@ -83,6 +83,9 @@ app.post("/carritos", (req, res) => {
         cantidad: body.cantidad,
         producto: body.producto,
         subtotal: body.subtotal,
+        iva: body.iva,
+        descuento: body.descuento,
+        total: body.total,
         usuario: body.usuario,
     });
 
