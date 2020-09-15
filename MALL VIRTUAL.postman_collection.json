@@ -1,0 +1,1441 @@
+{
+	"info": {
+		"_postman_id": "71c77bac-3038-42b6-839c-e2ece50df33c",
+		"name": "MALL VIRTUAL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "LOGIN: Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "correo",
+									"value": "pillaga@hotmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "pillaga",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/admin/login",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"admin",
+								"login"
+							],
+							"query": [
+								{
+									"key": "correo",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST: Admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "correo",
+									"value": "pillaga@hotmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "pillaga",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/admin",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"admin"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Empresa",
+			"item": [
+				{
+					"name": "POST: Empresa",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMDk4NzIyLCJleHAiOjE2MDAxMTMxMjJ9.K34k_Fz7zBX9sNWl0Yc_40WzwmBSTWyBsZbmMKFodO4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "ruc",
+									"value": "0105948012001",
+									"type": "text"
+								},
+								{
+									"key": "razonSocial",
+									"value": "Prueba",
+									"type": "text"
+								},
+								{
+									"key": "representante",
+									"value": "Christian Pillaga",
+									"type": "text"
+								},
+								{
+									"key": "direccion",
+									"value": "Parque Miraflores",
+									"type": "text"
+								},
+								{
+									"key": "telefono",
+									"value": "0985793246",
+									"type": "text"
+								},
+								{
+									"key": "correo",
+									"value": "prueba@hotmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/empresa",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"empresa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET: Empresa",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMTE2MDY0LCJleHAiOjE2MDAxMzA0NjR9.tpIDsfPGbwrjP1TZFBLW8NEu-eT7hfLLPdOWwLDl6zo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/empresa/5f5faceb3369f80017523775",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"empresa",
+								"5f5faceb3369f80017523775"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LOGIN: Empresa",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "correo",
+									"value": "prueba@hotmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/empresa/login",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"empresa",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BUSCAR: RazonSocial",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMDk4NzIyLCJleHAiOjE2MDAxMTMxMjJ9.K34k_Fz7zBX9sNWl0Yc_40WzwmBSTWyBsZbmMKFodO4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/empresa/buscar/prueb",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"empresa",
+								"buscar",
+								"prueb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT: Empresa",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMDk4NzIyLCJleHAiOjE2MDAxMTMxMjJ9.K34k_Fz7zBX9sNWl0Yc_40WzwmBSTWyBsZbmMKFodO4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "ruc",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "razonSocial",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "representante",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "telefono",
+									"value": "0959092688",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "correo",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "tipo",
+									"value": "5f5faceb3369f80017523775",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/empresa/5f5f8fbdbc2e500017837529",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"empresa",
+								"5f5f8fbdbc2e500017837529"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE: Empresa",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMDk4NzIyLCJleHAiOjE2MDAxMTMxMjJ9.K34k_Fz7zBX9sNWl0Yc_40WzwmBSTWyBsZbmMKFodO4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/empresa/5f5f8fbdbc2e500017837529",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"empresa",
+								"5f5f8fbdbc2e500017837529"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Categoría",
+			"item": [
+				{
+					"name": "POST: Categoría",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMDk4NzIyLCJleHAiOjE2MDAxMTMxMjJ9.K34k_Fz7zBX9sNWl0Yc_40WzwmBSTWyBsZbmMKFodO4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "descripcion",
+									"value": "Electrodomésticos",
+									"type": "text"
+								},
+								{
+									"key": "empresa",
+									"value": "5f5f8fbdbc2e500017837529",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/categoria",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"categoria"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT: Categoría",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMDk4NzIyLCJleHAiOjE2MDAxMTMxMjJ9.K34k_Fz7zBX9sNWl0Yc_40WzwmBSTWyBsZbmMKFodO4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "descripcion",
+									"value": "Accesorios",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/categoria/5f5f9a185585a500178c951e",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"categoria",
+								"5f5f9a185585a500178c951e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET: Categoría",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMTE2MDY0LCJleHAiOjE2MDAxMzA0NjR9.tpIDsfPGbwrjP1TZFBLW8NEu-eT7hfLLPdOWwLDl6zo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/categoria/5f5f8fbdbc2e500017837529",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"categoria",
+								"5f5f8fbdbc2e500017837529"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET: Categoría por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMDk4NzIyLCJleHAiOjE2MDAxMTMxMjJ9.K34k_Fz7zBX9sNWl0Yc_40WzwmBSTWyBsZbmMKFodO4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/categoria/5f5f9a185585a500178c951e",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"categoria",
+								"5f5f9a185585a500178c951e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BUSCAR: Descripción",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMDk4NzIyLCJleHAiOjE2MDAxMTMxMjJ9.K34k_Fz7zBX9sNWl0Yc_40WzwmBSTWyBsZbmMKFodO4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/categoria/buscar/cc",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"categoria",
+								"buscar",
+								"cc"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5749e02c-f55e-40e7-9a79-a8be814803d5",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "25c9bbc9-bae1-48b6-a701-839e074b1590",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Producto",
+			"item": [
+				{
+					"name": "POST: Productos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMDk4NzIyLCJleHAiOjE2MDAxMTMxMjJ9.K34k_Fz7zBX9sNWl0Yc_40WzwmBSTWyBsZbmMKFodO4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nombre",
+									"value": "Vaso Licuadora Oster",
+									"type": "text"
+								},
+								{
+									"key": "precioUni",
+									"value": "2.50",
+									"type": "text"
+								},
+								{
+									"key": "descripcion",
+									"value": "Vidrio",
+									"type": "text"
+								},
+								{
+									"key": "unidadMedida",
+									"value": "Unidad",
+									"type": "text"
+								},
+								{
+									"key": "img",
+									"value": "vaso.jpg",
+									"type": "text"
+								},
+								{
+									"key": "categoria",
+									"value": "5f5f9a185585a500178c951e",
+									"type": "text"
+								},
+								{
+									"key": "stock",
+									"value": "10",
+									"type": "text"
+								},
+								{
+									"key": "iva",
+									"value": "Si",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/productos",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET: Productos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMTE2MDY0LCJleHAiOjE2MDAxMzA0NjR9.tpIDsfPGbwrjP1TZFBLW8NEu-eT7hfLLPdOWwLDl6zo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/productos",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"productos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT: Producto",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMTE2MDY0LCJleHAiOjE2MDAxMzA0NjR9.tpIDsfPGbwrjP1TZFBLW8NEu-eT7hfLLPdOWwLDl6zo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nombre",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "precioUni",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "descripcion",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "unidadMedida",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "stock",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "categoria",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "img",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/productos/5f5fb125824d030017923620",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"productos",
+								"5f5fb125824d030017923620"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE: Producto",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMTE2MDY0LCJleHAiOjE2MDAxMzA0NjR9.tpIDsfPGbwrjP1TZFBLW8NEu-eT7hfLLPdOWwLDl6zo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/productos/5f5fb12c824d030017923621",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"productos",
+								"5f5fb12c824d030017923621"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Tipo",
+			"item": [
+				{
+					"name": "POST: Tipo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMDk4NzIyLCJleHAiOjE2MDAxMTMxMjJ9.K34k_Fz7zBX9sNWl0Yc_40WzwmBSTWyBsZbmMKFodO4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "descripcion",
+									"value": "Boutique",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/tipo",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tipo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET: Tipo",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMDk4NzIyLCJleHAiOjE2MDAxMTMxMjJ9.K34k_Fz7zBX9sNWl0Yc_40WzwmBSTWyBsZbmMKFodO4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/tipo",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tipo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar: Descripcion",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMDk4NzIyLCJleHAiOjE2MDAxMTMxMjJ9.K34k_Fz7zBX9sNWl0Yc_40WzwmBSTWyBsZbmMKFodO4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/tipo/buscar/el",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tipo",
+								"buscar",
+								"el"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT: Tipo",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMDk4NzIyLCJleHAiOjE2MDAxMTMxMjJ9.K34k_Fz7zBX9sNWl0Yc_40WzwmBSTWyBsZbmMKFodO4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "descripcion",
+									"value": "Electrodomésticos",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/tipo/5f5faceb3369f80017523775",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"tipo",
+								"5f5faceb3369f80017523775"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "POST: Usuario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMDk4NzIyLCJleHAiOjE2MDAxMTMxMjJ9.K34k_Fz7zBX9sNWl0Yc_40WzwmBSTWyBsZbmMKFodO4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "nombre",
+									"value": "Christian Pillaga",
+									"type": "text"
+								},
+								{
+									"key": "correo",
+									"value": "pillaga4173@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/usuarios",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET: Usuario",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMDk4NzIyLCJleHAiOjE2MDAxMTMxMjJ9.K34k_Fz7zBX9sNWl0Yc_40WzwmBSTWyBsZbmMKFodO4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/usuarios",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET: Usuario por ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMDk4NzIyLCJleHAiOjE2MDAxMTMxMjJ9.K34k_Fz7zBX9sNWl0Yc_40WzwmBSTWyBsZbmMKFodO4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/usuarios/5f6007e5d63dad0017a71df9",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"usuarios",
+								"5f6007e5d63dad0017a71df9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BUSCAR: Usuario por Nombre",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMDk4NzIyLCJleHAiOjE2MDAxMTMxMjJ9.K34k_Fz7zBX9sNWl0Yc_40WzwmBSTWyBsZbmMKFodO4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/usuarios/buscar/pil",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"usuarios",
+								"buscar",
+								"pil"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LOGIN: Usuario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMDk4NzIyLCJleHAiOjE2MDAxMTMxMjJ9.K34k_Fz7zBX9sNWl0Yc_40WzwmBSTWyBsZbmMKFodO4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "correo",
+									"value": "pillaga4173@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/login",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Carrito",
+			"item": [
+				{
+					"name": "POST: Carrito",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMDk4NzIyLCJleHAiOjE2MDAxMTMxMjJ9.K34k_Fz7zBX9sNWl0Yc_40WzwmBSTWyBsZbmMKFodO4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "cantidad",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "producto",
+									"value": "5f5fb125824d030017923620",
+									"type": "text"
+								},
+								{
+									"key": "subtotal",
+									"value": "2.50",
+									"type": "text"
+								},
+								{
+									"key": "usuario",
+									"value": "5f6007e5d63dad0017a71df9",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/carritos",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"carritos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET: Carritos por usuario",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMDk4NzIyLCJleHAiOjE2MDAxMTMxMjJ9.K34k_Fz7zBX9sNWl0Yc_40WzwmBSTWyBsZbmMKFodO4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/carritos-usuario/5f6007e5d63dad0017a71df9",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"carritos-usuario",
+								"5f6007e5d63dad0017a71df9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET: Carritos por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMDk4NzIyLCJleHAiOjE2MDAxMTMxMjJ9.K34k_Fz7zBX9sNWl0Yc_40WzwmBSTWyBsZbmMKFodO4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/carritos/5f600c61acc45d0017dc211b",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"carritos",
+								"5f600c61acc45d0017dc211b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT: Carritos",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMDk4NzIyLCJleHAiOjE2MDAxMTMxMjJ9.K34k_Fz7zBX9sNWl0Yc_40WzwmBSTWyBsZbmMKFodO4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "cantidad",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "producto",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "subtotal",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/carritos/5f600c61acc45d0017dc211b",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"carritos",
+								"5f600c61acc45d0017dc211b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE: Carrito por ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMDk4NzIyLCJleHAiOjE2MDAxMTMxMjJ9.K34k_Fz7zBX9sNWl0Yc_40WzwmBSTWyBsZbmMKFodO4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/carritos/5f600c61acc45d0017dc211b",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"carritos",
+								"5f600c61acc45d0017dc211b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE: Carrito por Usuario",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMDk4NzIyLCJleHAiOjE2MDAxMTMxMjJ9.K34k_Fz7zBX9sNWl0Yc_40WzwmBSTWyBsZbmMKFodO4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/carritos-usuario/5f6007e5d63dad0017a71df9",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"carritos-usuario",
+								"5f6007e5d63dad0017a71df9"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Compra",
+			"item": [
+				{
+					"name": "GET: Compra",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMDk4NzIyLCJleHAiOjE2MDAxMTMxMjJ9.K34k_Fz7zBX9sNWl0Yc_40WzwmBSTWyBsZbmMKFodO4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/compra",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"compra"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BUSCAR: Compras por Usuario",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMDk4NzIyLCJleHAiOjE2MDAxMTMxMjJ9.K34k_Fz7zBX9sNWl0Yc_40WzwmBSTWyBsZbmMKFodO4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/compra/5f6007e5d63dad0017a71df9",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"compra",
+								"5f6007e5d63dad0017a71df9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST: Compra",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJfaWQiOiI1ZjVmOGU5ZWQwMGU5MzAwMTdkM2I4YTYiLCJjb3JyZW8iOiJwaWxsYWdhQGhvdG1haWwuY29tIiwicGFzc3dvcmQiOiJudWxsIiwiX192IjowfSwiaWF0IjoxNjAwMDk4NzIyLCJleHAiOjE2MDAxMTMxMjJ9.K34k_Fz7zBX9sNWl0Yc_40WzwmBSTWyBsZbmMKFodO4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "cantidad",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "producto",
+									"value": "5f5fb125824d030017923620",
+									"type": "text"
+								},
+								{
+									"key": "subtotal",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "subtotal12",
+									"value": "2.50",
+									"type": "text"
+								},
+								{
+									"key": "iva",
+									"value": "0.30",
+									"type": "text"
+								},
+								{
+									"key": "descuento",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "total",
+									"value": "2.80",
+									"type": "text"
+								},
+								{
+									"key": "usuario",
+									"value": "5f6007e5d63dad0017a71df9",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://mallvirtual1.herokuapp.com/compra",
+							"protocol": "https",
+							"host": [
+								"mallvirtual1",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"compra"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -1,9 +1,12 @@
 const express = require("express");
 const mongoose = require('mongoose');
 const carrito = require("../models/carrito");
-
+const cors = require('cors');
 
 let app = express();
+const { verificaToken } = require('../middlewares/autenticacion');
+
+app.use(cors({ origin: '*' }));
 
 let Carrito = require("../models/carrito");
 
@@ -11,7 +14,7 @@ let Carrito = require("../models/carrito");
 //mostrar todos los carritos por usuario
 //=======================================
 
-app.get("/carritos-usuario/:id", (req, res) => {
+app.get("/carritos-usuario/:id", verificaToken, (req, res) => {
     //traer todos los productos
     let id = req.params.id;
     let desde = req.query.desde || 0;
@@ -42,8 +45,7 @@ app.get("/carritos-usuario/:id", (req, res) => {
 //=====================================
 //obtener un carrito por id
 //=====================================
-
-app.get("/carritos/:id", (req, res) => {
+app.get("/carritos/:id", verificaToken, (req, res) => {
     let id = req.params.id;
     Carrito.findById(id)
         .populate({
@@ -77,7 +79,7 @@ app.get("/carritos/:id", (req, res) => {
 //=====================================
 //crear un nuevo carrito
 //=====================================
-app.post("/carritos", (req, res) => {
+app.post("/carritos", verificaToken, (req, res) => {
     let body = req.body;
     let carrito = new Carrito({
         cantidad: body.cantidad,
@@ -103,7 +105,7 @@ app.post("/carritos", (req, res) => {
 //=====================================
 //actualizar carrito
 //=====================================
-app.put("/carritos/:id", (req, res) => {
+app.put("/carritos/:id", verificaToken, (req, res) => {
     let id = req.params.id;
     let body = req.body;
 
@@ -156,7 +158,7 @@ app.put("/carritos/:id", (req, res) => {
 //=====================================
 //borrar carrito
 //=====================================
-app.delete("/carritos/:id", (req, res) => {
+app.delete("/carritos/:id", verificaToken, (req, res) => {
     let id = req.params.id;
     Carrito.findByIdAndRemove(id, (err, carritoDB) => {
         if (err) {
@@ -182,7 +184,7 @@ app.delete("/carritos/:id", (req, res) => {
 //========================================
 //borrar todos los carritos de un usuario
 //========================================
-app.delete("/carritos-usuario/:id", (req, res) => {
+app.delete("/carritos-usuario/:id", verificaToken, (req, res) => {
     let id = req.params.id;
 
     Carrito.remove({
@@ -212,7 +214,7 @@ app.delete("/carritos-usuario/:id", (req, res) => {
 //=====================================
 //borrar carrito x producto
 //=====================================
-app.delete("/carritos/buscar/:id", (req, res) => {
+app.delete("/carritos/buscar/:id", verificaToken, (req, res) => {
     let id = req.params.id;
     Carrito.findOneAndRemove({
         'producto': id
@@ -241,7 +243,7 @@ app.delete("/carritos/buscar/:id", (req, res) => {
 // =====================================
 // Buscar un carrito x producto
 // =====================================
-app.get("/carritos/buscar/:termino&:id", (req, res) => {
+app.get("/carritos/buscar/:termino&:id", verificaToken, (req, res) => {
     let termino = req.params.termino;
     let id = req.params.id;
     Carrito.find({
@@ -271,7 +273,7 @@ app.get("/carritos/buscar/:termino&:id", (req, res) => {
 //=====================================
 //Sumar carritos de un usuario
 //=====================================
-app.get("/carritos-suma/:id", (req, res) => {
+app.get("/carritos-suma/:id", verificaToken, (req, res) => {
     let id = req.params.id;
     console.log(res.json);
     Carrito.aggregate([{
@@ -309,7 +311,7 @@ app.get("/carritos-suma/:id", (req, res) => {
 //Contar productos del carrito
 //=====================================
 
-app.get("/carritos-count/:id", (req, res) => {
+app.get("/carritos-count/:id", verificaToken, (req, res) => {
     let id = req.params.id;
     console.log(res.json);
     Carrito.count({

@@ -1,16 +1,21 @@
 const express = require("express");
 const mongoose = require('mongoose');
 const compra = require("../models/compra");
+const cors = require('cors');
 
 
 let app = express();
+const { verificaToken } = require('../middlewares/autenticacion');
+
+app.use(cors({ origin: '*' }));
+
 
 let Compra = require("../models/compra");
 
 //=======================================
 //mostrar todas las compras
 //=======================================
-app.get("/compra", (req, res) => {
+app.get("/compra", verificaToken, (req, res) => {
     let id = req.params.id;
     let desde = req.query.desde || 0;
     desde = Number(desde);
@@ -38,7 +43,7 @@ app.get("/compra", (req, res) => {
 //=====================================
 //obtener compra por usuario
 //=====================================
-app.get("/compra/:id", (req, res) => {
+app.get("/compra/:id", verificaToken, (req, res) => {
     let id = req.params.id;
 
     Compra.find({ usuario: id })
@@ -73,7 +78,7 @@ app.get("/compra/:id", (req, res) => {
 //=====================================
 //crear una nueva compra
 //=====================================
-app.post("/compra", (req, res) => {
+app.post("/compra", verificaToken, (req, res) => {
     let body = req.body;
     let compra = new Compra({
         cantidad: body.cantidad,
@@ -103,7 +108,7 @@ app.post("/compra", (req, res) => {
 //=====================================
 //actualizar compra
 //=====================================
-app.put("/compra/:id", (req, res) => {
+app.put("/compra/:id", verificaToken, (req, res) => {
     let id = req.params.id;
     let body = req.body;
 
@@ -154,10 +159,11 @@ app.put("/compra/:id", (req, res) => {
     //grabar una categoria del listado
 });
 
+
 //=====================================
 //borrar compra
 //=====================================
-app.delete("/compra/:id", (req, res) => {
+app.delete("/compra/:id", verificaToken, (req, res) => {
     let id = req.params.id;
     Compra.findByIdAndRemove(id, (err, compraDB) => {
         if (err) {

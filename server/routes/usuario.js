@@ -1,8 +1,13 @@
 const express = require("express");
 
 const bcrypt = require("bcryptjs");
+const cors = require('cors');
 
 let app = express();
+const { verificaToken } = require('../middlewares/autenticacion');
+
+app.use(cors({ origin: '*' }));
+
 
 let Usuario = require("../models/usuario");
 
@@ -10,7 +15,7 @@ let Usuario = require("../models/usuario");
 //mostrar todos los usuarios
 //=====================================
 
-app.get("/usuarios", (req, res) => {
+app.get("/usuarios", verificaToken, (req, res) => {
     //traer todos los usuarios
 
     let desde = req.query.desde || 0;
@@ -33,7 +38,7 @@ app.get("/usuarios", (req, res) => {
 //obtener un usuario por id
 //=====================================
 
-app.get("/usuarios/:id", (req, res) => {
+app.get("/usuarios/:id", verificaToken, (req, res) => {
     let id = req.params.id;
     Usuario.findById(id).exec((err, usuarioDB) => {
         if (err) {
@@ -87,7 +92,7 @@ app.post("/usuarios", (req, res) => {
 // =====================================
 // Buscar un usuario x nombre
 // =====================================
-app.get("/usuarios/buscar/:termino", (req, res) => {
+app.get("/usuarios/buscar/:termino", verificaToken, (req, res) => {
     let termino = req.params.termino;
     let regex = new RegExp(termino, "i");
     Usuario.find({
@@ -119,7 +124,7 @@ app.get("/usuarios/buscar/:termino", (req, res) => {
 //actualizar usuario.
 //=====================================
 
-app.put("/usuarios/:id", (req, res) => {
+app.put("/usuarios/:id", verificaToken, (req, res) => {
     let id = req.params.id;
     let body = req.body;
 
@@ -169,7 +174,7 @@ app.put("/usuarios/:id", (req, res) => {
 //actualizar usuario sin password
 //=====================================
 
-app.put("/usuarios-sin-password/:id", (req, res) => {
+app.put("/usuarios-sin-password/:id", verificaToken, (req, res) => {
     let id = req.params.id;
     let body = req.body;
 
