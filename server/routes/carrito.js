@@ -185,7 +185,6 @@ app.delete("/carritos/:id", (req, res) => {
 //========================================
 //borrar todos los carritos de un usuario
 //========================================
-
 app.delete("/carritos-usuario/:id", (req, res) => {
     let id = req.params.id;
 
