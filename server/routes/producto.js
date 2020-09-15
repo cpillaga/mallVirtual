@@ -171,26 +171,36 @@ app.put("/productos/:id", verificaToken, (req, res) => {
 
 app.delete("/productos/:id", verificaToken, (req, res) => {
     let id = req.params.id;
-    Producto.findByIdAndRemove(id, (err, productoDB) => {
+
+    let cambiaEstado = {
+        estado: false
+    };
+
+    Producto.findByIdAndUpdate(id, cambiaEstado, { new: true }, (err, productoBorrado) => {
         if (err) {
-            return res.status(500).json({
+            return res.status(400).json({
                 ok: false,
-                err,
+                err
             });
         }
-        if (!productoDB) {
+
+        if (!productoBorrado) {
             return res.status(400).json({
                 ok: false,
                 err: {
-                    mensaje: "el id no existe",
-                },
+                    message: 'Producto no encontrada'
+                }
             });
         }
+
+        productoBorrado.password = null;
+
         res.json({
             ok: true,
-            mensaje: "Producto eliminado",
+            producto: productoBorrado
         });
     });
+
 });
 
 //=====================================

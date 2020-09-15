@@ -32,8 +32,11 @@ let productoSchema = new Schema({
         type: Number,
         default: 0,
         required: [true, 'La cantidad es necesaria']
+    },
+    estado: {
+        type: Boolean,
+        default: true,
     }
-
 });
 
 
