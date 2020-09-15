@@ -85,13 +85,13 @@ app.post("/usuarios", (req, res) => {
 });
 
 // =====================================
-// Buscar un usuario x correo
+// Buscar un usuario x nombre
 // =====================================
 
 app.get("/usuarios/buscar/:termino", (req, res) => {
     let termino = req.params.termino;
     Usuario.find({
-        correo: termino,
+        nombre: termino,
     }).exec((err, usuarios) => {
         if (err) {
             return res.status(500).json({
