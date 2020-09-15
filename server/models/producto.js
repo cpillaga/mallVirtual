@@ -36,6 +36,10 @@ let productoSchema = new Schema({
     estado: {
         type: Boolean,
         default: true,
+    },
+    iva: {
+        type: String,
+        required: [true, 'El IVA es necesario']
     }
 });
 
