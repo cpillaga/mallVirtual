@@ -80,6 +80,7 @@ app.post("/compra", (req, res) => {
         cantidad: body.cantidad,
         producto: body.producto,
         subtotal: body.subtotal,
+        subtotal12: body.subtotal12,
         iva: body.iva,
         descuento: body.descuento,
         total: body.total,
@@ -131,6 +132,7 @@ app.put("/compra/:id", (req, res) => {
             compraBD.cantidad = body.cantidad;
             compraBD.producto = body.producto;
             compraBD.subtotal = body.subtotal;
+            compraBD.subtotal12 = body.subtotal12;
             compraBD.descuento = body.descuento;
             compraBD.iva = body.iva;
             compraBD.total = body.total;

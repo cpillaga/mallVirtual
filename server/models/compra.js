@@ -16,6 +16,10 @@ let compraSchema = new Schema({
         type: Number,
         required: [true, 'El subtotal es necesario']
     },
+    subtotal12: {
+        type: Number,
+        required: [true, 'El subtotal12 es necesario']
+    },
     iva: {
         type: Number,
         required: [true, 'El iva es necesario']
