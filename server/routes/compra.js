@@ -14,9 +14,7 @@ app.get("/compra", (req, res) => {
     let id = req.params.id;
     let desde = req.query.desde || 0;
     desde = Number(desde);
-    Compra.find({
-            usuario: id
-        })
+    Compra.find()
         .populate({
             path: 'producto',
             populate: {
