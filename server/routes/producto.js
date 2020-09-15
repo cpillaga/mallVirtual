@@ -13,7 +13,7 @@ let Producto = require("../models/producto");
 app.get("/productos", verificaToken, (req, res) => {
     //traer todos los productos
 
-    Producto.find()
+    Producto.find({ estado: true })
         .populate('categoria')
         .exec((err, productos) => {
             if (err) {
@@ -36,7 +36,7 @@ app.get("/productos-categoria/:id", verificaToken, (req, res) => {
 
     let desde = req.query.desde || 0;
     desde = Number(desde);
-    Producto.find({ categoria: id })
+    Producto.find({ categoria: id, estado: true })
         .populate('categoria', 'descripcion')
         .exec((err, productos) => {
             if (err) {
@@ -212,6 +212,7 @@ app.get("/productos/buscar/:termino", verificaToken, (req, res) => {
     let regex = new RegExp(termino, "i");
     Producto.find({
             nombre: regex,
+            estado: true
         })
         .sort("nombre")
         .populate('categoria', 'descripcion')
