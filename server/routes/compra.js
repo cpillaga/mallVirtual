@@ -40,7 +40,8 @@ app.get("/compra", (req, res) => {
 //=====================================
 app.get("/compra/:id", (req, res) => {
     let id = req.params.id;
-    Compra.findById(id)
+
+    Compra.find({ usuario: id })
         .populate({
             path: 'producto',
             populate: {
