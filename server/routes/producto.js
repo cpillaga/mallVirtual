@@ -28,7 +28,7 @@ app.get("/productos/emp/:empresa", verificaToken, (req, res) => {
             }
 
             let tam = productos.length;
-            let arreglo = Producto;
+            const arreglo = Producto;
             let conta = 0;
 
             for (let i = 0; i < tam; i++) {
@@ -41,8 +41,9 @@ app.get("/productos/emp/:empresa", verificaToken, (req, res) => {
 
             res.json({
                 ok: true,
-                productos: arreglo
+                conta
             });
+
         });
 });
 
