@@ -29,20 +29,19 @@ app.get("/productos/emp/:empresa", verificaToken, (req, res) => {
             }
 
             let tam = productos.length;
-            const arreglo = [];
+            let arreglo = [];
             let conta = 0;
 
             for (let i = 0; i < tam; i++) {
                 if (empresaB == productos[i].categoria.empresa) {
-                    // arreglo[conta] = productos[i];
-                    // conta = conta + 1;
-                    productos = productos[i];
+                    arreglo[conta] = productos[i];
+                    conta = conta + 1;
                 }
             }
 
             res.json({
                 ok: true,
-                productos
+                arreglo
             });
         });
 });
