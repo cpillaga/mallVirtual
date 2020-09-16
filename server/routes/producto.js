@@ -95,7 +95,8 @@ app.post("/productos", verificaToken, (req, res) => {
         unidadMedida: body.unidadMedida,
         img: body.img,
         categoria: body.categoria,
-        stock: body.stock
+        stock: body.stock,
+        iva: body.iva
     });
 
     producto.save((err, productoBD) => {
@@ -145,6 +146,7 @@ app.put("/productos/:id", verificaToken, (req, res) => {
             productoBD.descripcion = body.descripcion;
             productoBD.unidadMedida = body.unidadMedida;
             productoBD.stock = body.stock;
+            productoBD.iva = body.iva;
             (productoBD.img = body.img),
             (productoBD.categoria = body.categoria),
             productoBD.save((err, productoGuardado) => {
