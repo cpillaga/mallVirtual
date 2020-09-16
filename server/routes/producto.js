@@ -41,7 +41,7 @@ app.get("/productos/emp/:empresa", verificaToken, (req, res) => {
 
             res.json({
                 ok: true,
-                conta
+                arreglo
             });
 
         });
