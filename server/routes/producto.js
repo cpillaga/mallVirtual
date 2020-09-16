@@ -5,7 +5,7 @@ let app = express();
 
 const { verificaToken } = require('../middlewares/autenticacion');
 
-const producto = require("../models/producto");
+// const producto = require("../models/producto");
 
 let Producto = require("../models/producto");
 
@@ -13,8 +13,9 @@ let Producto = require("../models/producto");
 //mostrar todas las categorias
 //=====================================
 
-app.get("/productos", verificaToken, (req, res) => {
+app.get("/productos/emp/:empresa", verificaToken, (req, res) => {
     //traer todos los productos
+    let empresaB = req.params.empresa;
 
     Producto.find({ estado: true })
         .populate('categoria')
@@ -26,9 +27,21 @@ app.get("/productos", verificaToken, (req, res) => {
                 });
             }
 
+            let tam = productos.length;
+            let arreglo = Producto;
+            let conta = 0;
+
+            for (let i = 0; i < tam; i++) {
+                if (empresaB == productos[i].categoria.empresa) {
+                    arreglo[conta] = productos[i];
+                    conta = conta + 1;
+                }
+            }
+
+
             res.json({
                 ok: true,
-                productos
+                productos: arreglo
             });
         });
 });
