@@ -36,13 +36,14 @@ app.get("/productos/emp/:empresa", verificaToken, (req, res) => {
                 if (empresaB == productos[i].categoria.empresa) {
                     // arreglo[conta] = productos[i];
                     // conta = conta + 1;
-                    res.json({
-                        ok: true,
-                        productos: productos[i]
-                    });
+                    productos = productos[i];
                 }
             }
 
+            res.json({
+                ok: true,
+                productos
+            });
         });
 });
 
