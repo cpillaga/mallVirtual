@@ -42,6 +42,10 @@ let empresaSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Tipo',
         required: [true, 'El tipo es obligatorio']
+    },
+    img: {
+        type: String,
+        required: [true, 'La imagen es obligatoria']
     }
 });
 

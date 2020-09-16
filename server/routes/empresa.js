@@ -57,6 +57,28 @@ app.post('/empresa/login', function(req, res) {
 });
 
 /*
+    Listar todas las empresas
+*/
+app.get('/empresa', verificaToken, (req, res) => {
+
+    Empresa.find({ estado: true }, 'ruc razonSocial representante direccion telefono correo') //Lo que esta dentro de apostrofe son campos a mostrar
+        .populate('tipo')
+        .exec((err, empresa) => {
+            if (err) {
+                return res.status(400).json({
+                    ok: false,
+                    err
+                });
+            }
+
+            res.json({
+                ok: true,
+                empresa
+            });
+        });
+});
+
+/*
     Buscar empresa por tipo
 */
 app.get('/empresa/:tipo', verificaToken, (req, res) => {
@@ -116,7 +138,8 @@ app.post('/empresa', verificaToken, function(req, res) {
         telefono: body.telefono,
         correo: body.correo,
         password: bcrypt.hashSync(body.password, 10),
-        tipo: body.tipo
+        tipo: body.tipo,
+        img: body.img
     });
 
     empresa.save((err, empresaDB) => {
@@ -138,7 +161,7 @@ app.post('/empresa', verificaToken, function(req, res) {
 app.put('/empresa/:id', verificaToken, function(req, res) {
     let id = req.params.id;
 
-    let body = _.pick(req.body, ['ruc', 'razonSocial', 'representante', 'telefono', 'correo', 'password', 'tipo']);
+    let body = _.pick(req.body, ['ruc', 'razonSocial', 'representante', 'telefono', 'correo', 'password', 'tipo', 'img']);
 
 
     if (body.password != null) {
