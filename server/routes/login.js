@@ -1,11 +1,14 @@
 const express = require("express");
-
+const jwt = require('jsonwebtoken');
 const bcrypt = require("bcryptjs");
 
 let Usuario = require("../models/usuario");
+const SEED = require('../config/config').SEED;
+const cors = require('cors');
 
 let app = express();
 
+app.use(cors({ origin: '*' }));
 
 app.post("/login", (req, res) => {
     let body = req.body;
