@@ -61,7 +61,7 @@ app.post('/empresa/login', function(req, res) {
 */
 app.get('/empresa', verificaToken, (req, res) => {
 
-    Empresa.find({ estado: true }, 'ruc razonSocial representante direccion telefono correo') //Lo que esta dentro de apostrofe son campos a mostrar
+    Empresa.find({ estado: true }, 'ruc razonSocial representante direccion telefono correo img') //Lo que esta dentro de apostrofe son campos a mostrar
         .populate('tipo')
         .exec((err, empresa) => {
             if (err) {
@@ -84,7 +84,7 @@ app.get('/empresa', verificaToken, (req, res) => {
 app.get('/empresa/:tipo', verificaToken, (req, res) => {
     let tipoB = req.params.tipo;
 
-    Empresa.find({ estado: true, tipo: tipoB }, 'ruc razonSocial representante direccion telefono correo') //Lo que esta dentro de apostrofe son campos a mostrar
+    Empresa.find({ estado: true, tipo: tipoB }, 'ruc razonSocial representante direccion telefono correo img') //Lo que esta dentro de apostrofe son campos a mostrar
         .populate('tipo')
         .exec((err, empresa) => {
             if (err) {
@@ -110,7 +110,7 @@ app.get('/empresa/buscar/:razon', verificaToken, function(req, res) {
     let razonB = req.params.razon;
     let regex = new RegExp(razonB, 'i');
 
-    Empresa.find({ razonSocial: regex }, 'ruc razonSocial correo telefono direccion representante')
+    Empresa.find({ razonSocial: regex }, 'ruc razonSocial correo telefono direccion representante img')
         .populate('tipo')
         .exec((err, empresa) => {
             if (err) {
