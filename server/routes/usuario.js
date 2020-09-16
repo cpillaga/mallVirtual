@@ -18,8 +18,6 @@ let Usuario = require("../models/usuario");
 app.get("/usuarios", verificaToken, (req, res) => {
     //traer todos los usuarios
 
-    let desde = req.query.desde || 0;
-    desde = Number(desde);
     Usuario.find().exec((err, usuarios) => {
         if (err) {
             res.status(500).json({
