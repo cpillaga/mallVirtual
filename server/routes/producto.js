@@ -4,6 +4,7 @@ const _ = require('underscore');
 let app = express();
 
 const { verificaToken } = require('../middlewares/autenticacion');
+const producto = require("../models/producto");
 
 // const producto = require("../models/producto");
 
@@ -16,6 +17,7 @@ let Producto = require("../models/producto");
 app.get("/productos/emp/:empresa", verificaToken, (req, res) => {
     //traer todos los productos
     let empresaB = req.params.empresa;
+    let arreglo;
 
     Producto.find({ estado: true })
         .populate('categoria')
@@ -28,7 +30,7 @@ app.get("/productos/emp/:empresa", verificaToken, (req, res) => {
             }
 
             let tam = productos.length;
-            const arreglo = Producto;
+
             let conta = 0;
 
             for (let i = 0; i < tam; i++) {
@@ -37,7 +39,6 @@ app.get("/productos/emp/:empresa", verificaToken, (req, res) => {
                     conta = conta + 1;
                 }
             }
-
 
             res.json({
                 ok: true,
