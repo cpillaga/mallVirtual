@@ -1,7 +1,10 @@
 const express = require("express");
+const _ = require('underscore');
 
 let app = express();
+
 const { verificaToken } = require('../middlewares/autenticacion');
+
 const producto = require("../models/producto");
 
 let Producto = require("../models/producto");
@@ -118,53 +121,22 @@ app.post("/productos", verificaToken, (req, res) => {
 //=====================================
 app.put("/productos/:id", verificaToken, (req, res) => {
     let id = req.params.id;
-    let body = req.body;
 
-    Producto.findByIdAndUpdate(
-        id, {
-            new: true,
-            runValidators: true,
-        },
-        (err, productoBD) => {
-            if (err) {
-                res.status(500).json({
-                    ok: false,
-                    err,
-                });
-            }
+    let body = _.pick(req.body, ['nombre', 'precioUni', 'descripcion', 'unidadMedida', 'img', 'categoria', 'stock', 'iva']);
 
-            if (!productoBD) {
-                res.status(400).json({
-                    ok: false,
-                    err: {
-                        mensaje: "no existe el producto con este id en la base de datos",
-                    },
-                });
-            }
-            productoBD.nombre = body.nombre;
-            productoBD.precioUni = body.precioUni;
-            productoBD.descripcion = body.descripcion;
-            productoBD.unidadMedida = body.unidadMedida;
-            productoBD.stock = body.stock;
-            productoBD.iva = body.iva;
-            (productoBD.img = body.img),
-            (productoBD.categoria = body.categoria),
-            productoBD.save((err, productoGuardado) => {
-                if (err) {
-                    return res.status(500).json({
-                        ok: false,
-                        err,
-                    });
-                }
-                res.json({
-                    ok: true,
-                    producto: productoGuardado,
-                });
+    Producto.findByIdAndUpdate(id, body, { new: true, runValidators: true }, (err, productoDB) => {
+        if (err) {
+            return res.status(400).json({
+                ok: false,
+                err
             });
         }
-    );
-    //grabar el usuario
-    //grabar una categoria del listado
+
+        res.json({
+            ok: true,
+            producto: productoDB
+        });
+    });
 });
 
 //=====================================
