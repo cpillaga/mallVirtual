@@ -78,6 +78,26 @@ app.get('/empresa', verificaToken, (req, res) => {
         });
 });
 
+app.get('/empresa/besEmp/:id', verificaToken, (req, res) => {
+    let idB = req.params.id;
+
+    Empresa.find({ estado: true, id: idB }, 'ruc razonSocial representante direccion telefono correo img') //Lo que esta dentro de apostrofe son campos a mostrar
+        .populate('tipo')
+        .exec((err, empresa) => {
+            if (err) {
+                return res.status(400).json({
+                    ok: false,
+                    err
+                });
+            }
+
+            res.json({
+                ok: true,
+                empresa
+            });
+        });
+});
+
 /*
     Buscar empresa por tipo
 */
