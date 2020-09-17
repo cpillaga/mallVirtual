@@ -42,7 +42,7 @@ app.post('/admin/login', function(req, res) {
         }
         adminDB.password = 'null';
 
-        var token = jwt.sign({ admin: adminDB }, SEED, { expiresIn: 14400 }); //4 horas
+        var token = jwt.sign({ admin: adminDB }, SEED, { expiresIn: 28800 }); //8 horas
 
         res.json({
             ok: true,

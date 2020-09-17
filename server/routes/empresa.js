@@ -44,7 +44,7 @@ app.post('/empresa/login', function(req, res) {
 
         empresaDB.password = 'null';
 
-        var token = jwt.sign({ empresa: empresaDB }, SEED, { expiresIn: 14400 }); //4 horas
+        var token = jwt.sign({ empresa: empresaDB }, SEED, { expiresIn: 28800 }); //4 horas
 
         res.json({
             ok: true,

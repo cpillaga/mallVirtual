@@ -11,9 +11,8 @@ let Producto = require("../models/producto");
 
 
 //=====================================
-//mostrar todas las categorias
+//mostrar todas las categorias de una empresa
 //=====================================
-
 app.get("/productos/emp/:empresa", verificaToken, (req, res) => {
     //traer todos los productos
     let empresaB = req.params.empresa;
