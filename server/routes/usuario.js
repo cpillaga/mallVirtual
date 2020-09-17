@@ -89,7 +89,7 @@ app.post("/usuarios", (req, res) => {
 // =====================================
 // Buscar un usuario x correo
 // =====================================
-app.get("/usuarios/buscar/:termino", verificaToken, (req, res) => {
+app.get("/usuarios/buscar/:termino", (req, res) => {
     let termino = req.params.termino;
     let regex = new RegExp(termino, "i");
     Usuario.find({
