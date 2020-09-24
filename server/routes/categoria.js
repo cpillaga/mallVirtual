@@ -16,7 +16,7 @@ app.get('/categoria/:empresa', verificaToken, (req, res) => {
 
     Categoria.find({ empresa: empresaB })
         .sort('descripcion')
-        .populate('empresa', 'razonSocial')
+        .populate('empresa')
         .exec((err, categoria) => {
             if (err) {
                 return res.status(500).json({
@@ -161,12 +161,15 @@ app.delete('/categoria/:id', verificaToken, (req, res) => {
 //Filtrar una categoria
 //=====================================
 
-app.get('/categoria/buscar/:termino', verificaToken, (req, res) => {
+app.get('/categoria/buscar/:termino&:empresa', verificaToken, (req, res) => {
     let termino = req.params.termino;
     let regex = new RegExp(termino, 'i');
+    let empresaB = req.params.empresa;
     Categoria.find({
-            descripcion: regex
+            descripcion: regex,
+            empresa: empresaB
         })
+        .populate('empresa')
         .sort('descripcion')
         .exec((err, categoria) => {
             if (err) {
