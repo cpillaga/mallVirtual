@@ -193,9 +193,11 @@ app.delete("/productos/:id", verificaToken, (req, res) => {
 //Filtrar un producto
 //=====================================
 
-app.get("/productos/buscar/:termino", verificaToken, (req, res) => {
+app.get("/productos/buscar/:termino&:empresa", verificaToken, (req, res) => {
     let termino = req.params.termino;
     let regex = new RegExp(termino, "i");
+    let empresaB = req.params.empresa;
+
     Producto.find({
             nombre: regex,
             estado: true
@@ -210,9 +212,20 @@ app.get("/productos/buscar/:termino", verificaToken, (req, res) => {
                 });
             }
 
+            let tam = productos.length;
+            let arreglo = [];
+            let conta = 0;
+
+            for (let i = 0; i < tam; i++) {
+                if (empresaB == productos[i].categoria.empresa) {
+                    arreglo[conta] = productos[i];
+                    conta = conta + 1;
+                }
+            }
+
             res.json({
                 ok: true,
-                productos,
+                arreglo
             });
         });
 });
