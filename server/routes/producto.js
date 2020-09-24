@@ -212,20 +212,20 @@ app.get("/productos/buscar/:termino&:empresa", verificaToken, (req, res) => {
                 });
             }
 
-            let tam = productos.length;
-            let arreglo = [];
-            let conta = 0;
+            // let tam = productos.length;
+            // let arreglo = [];
+            // let conta = 0;
 
-            for (let i = 0; i < tam; i++) {
-                if (empresaB == productos[i].categoria.empresa) {
-                    arreglo[conta] = productos[i];
-                    conta = conta + 1;
-                }
-            }
+            // for (let i = 0; i < tam; i++) {
+            //     if (empresaB == productos[i].categoria.empresa) {
+            //         arreglo[conta] = productos[i];
+            //         conta = conta + 1;
+            //     }
+            // }
 
             res.json({
                 ok: true,
-                arreglo
+                productos
             });
         });
 });
