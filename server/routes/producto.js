@@ -203,7 +203,7 @@ app.get("/productos/buscar/:termino&:empresa", verificaToken, (req, res) => {
             estado: true
         })
         .sort("nombre")
-        .populate('categoria', 'descripcion')
+        .populate('categoria')
         .exec((err, productos) => {
             if (err) {
                 res.status(500).json({
