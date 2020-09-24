@@ -52,7 +52,7 @@ app.get("/productos-categoria/:id", verificaToken, (req, res) => {
     let desde = req.query.desde || 0;
     desde = Number(desde);
     Producto.find({ categoria: id, estado: true })
-        .populate('categoria', 'descripcion')
+        .populate('categoria')
         .exec((err, productos) => {
             if (err) {
                 res.status(500).json({
@@ -74,7 +74,7 @@ app.get("/productos-categoria/:id", verificaToken, (req, res) => {
 app.get("/productos/:id", verificaToken, (req, res) => {
     let id = req.params.id;
     Producto.findById(id)
-        .populate('categoria', 'descripcion')
+        .populate('categoria')
         .exec((err, productoDB) => {
             if (err) {
                 return res.status(500).json({
@@ -225,6 +225,8 @@ app.get("/productos/buscar/:termino&:empresa", verificaToken, (req, res) => {
 
             res.json({
                 ok: true,
+                // arreglo
+                productos,
                 arreglo
             });
         });
