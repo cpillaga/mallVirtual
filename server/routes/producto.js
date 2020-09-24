@@ -225,8 +225,7 @@ app.get("/productos/buscar/:termino&:empresa", verificaToken, (req, res) => {
 
             res.json({
                 ok: true,
-                // arreglo
-                productos,
+                //productos,
                 arreglo
             });
         });
