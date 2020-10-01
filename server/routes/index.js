@@ -14,5 +14,6 @@ app.use(require('./imagenes'));
 app.use(require('./metodoPago'));
 app.use(require('./tipo'));
 app.use(require('./compra'));
+app.use(require('./tarjeta'));
 
 module.exports = app;
