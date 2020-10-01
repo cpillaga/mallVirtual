@@ -34,7 +34,7 @@ app.get('/tarjeta/:usuario', verificaToken, (req, res) => {
 //mostrar una categoria por id.
 //=====================================
 
-app.get('/tarjeta/:id', verificaToken, (req, res) => {
+app.get('/tarjetaId/:id', verificaToken, (req, res) => {
     let id = req.params.id;
     Tarjeta.findById(id, (err, tarjetaDB) => {
         if (err) {
