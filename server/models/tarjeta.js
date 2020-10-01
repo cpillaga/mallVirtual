@@ -7,7 +7,7 @@ let tarjetaSchema = new Schema({
     numero: {
         type: String,
         unique: true,
-        required: [true, 'El número es obligatorio']
+        required: [true, 'Eal número es obligatorio']
     },
     nombre: {
         type: String,
