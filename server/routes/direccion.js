@@ -69,6 +69,8 @@ app.post('/direccion', verificaToken, (req, res) => {
         principal: body.principal,
         secundaria: body.secundaria,
         referencia: body.referencia,
+        lat: body.lat,
+        lng: body.lng,
         usuario: body.usuario
     });
 
@@ -98,7 +100,7 @@ app.post('/direccion', verificaToken, (req, res) => {
 app.put('/direccion/:id', verificaToken, function(req, res) {
     let id = req.params.id;
 
-    let body = _.pick(req.body, ['principal', 'secundaria', 'referencia', 'usuario']);
+    let body = _.pick(req.body, ['principal', 'secundaria', 'referencia', 'lat', 'lng', 'usuario']);
 
     Direccion.findByIdAndUpdate(id, body, { new: true, runValidators: true }, (err, direccionDB) => {
         if (err) {

@@ -17,6 +17,14 @@ let direccionSchema = new Schema({
         type: String,
         required: [true, 'La referencia es obligatoria']
     },
+    lat: {
+        type: String,
+        required: [true, 'La latitud es obligatoria']
+    },
+    lng: {
+        type: String,
+        required: [true, 'La longitud es obligatoria']
+    },
     usuario: {
         type: Schema.Types.ObjectId,
         ref: 'Usuario',
