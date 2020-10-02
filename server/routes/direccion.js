@@ -66,10 +66,9 @@ app.get('/direccionId/:id', verificaToken, (req, res) => {
 app.post('/direccion', verificaToken, (req, res) => {
     let body = req.body;
     let direccion = new Direccion({
-        numero: body.numero,
-        nombre: body.nombre,
-        mesVence: body.mesVence,
-        anioVence: body.anioVence,
+        principal: body.principal,
+        secundaria: body.secundaria,
+        referencia: body.referencia,
         usuario: body.usuario
     });
 
@@ -99,12 +98,7 @@ app.post('/direccion', verificaToken, (req, res) => {
 app.put('/direccion/:id', verificaToken, function(req, res) {
     let id = req.params.id;
 
-    let body = _.pick(req.body, ['numero', 'nombre', 'mesVence', 'anioVence']);
-
-
-    if (body.password != null) {
-        body.password = bcrypt.hashSync(body.password, 10);
-    }
+    let body = _.pick(req.body, ['principal', 'secundaria', 'referencia', 'usuario']);
 
     Direccion.findByIdAndUpdate(id, body, { new: true, runValidators: true }, (err, direccionDB) => {
         if (err) {
