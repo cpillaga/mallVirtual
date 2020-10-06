@@ -16,5 +16,6 @@ app.use(require('./tipo'));
 app.use(require('./compra'));
 app.use(require('./tarjeta'));
 app.use(require('./direccion'));
+app.use(require('./detalleCompra'));
 
 module.exports = app;

@@ -3,15 +3,6 @@ let Schema = mongoose.Schema;
 
 
 let compraSchema = new Schema({
-    cantidad: {
-        type: Number,
-        required: [true, 'La cantidad es necesaria'],
-    },
-    producto: {
-        type: Schema.Types.ObjectId,
-        ref: 'Producto',
-        required: true
-    },
     subtotal: {
         type: Number,
         required: [true, 'El subtotal es necesario']
@@ -39,5 +30,4 @@ let compraSchema = new Schema({
     }
 });
 
-
-module.exports = mongoose.model('compra', compraSchema);
+module.exports = mongoose.model('Compra', compraSchema);
