@@ -7,6 +7,10 @@ let tipoSchema = new Schema({
         type: String,
         unique: true,
         required: [true, 'La descripción del tipo es necesaria']
+    },
+    icono: {
+        type: String,
+        required: [true, 'El ícono del tipo es necesaria']
     }
 });
 

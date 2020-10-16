@@ -63,7 +63,8 @@ app.get('/tipo/:id', verificaToken, (req, res) => {
 app.post('/tipo', verificaToken, (req, res) => {
     let body = req.body;
     let tipo = new Tipo({
-        descripcion: body.descripcion
+        descripcion: body.descripcion,
+        icono: body.icono
     });
 
     tipo.save((err, tipoBD) => {
@@ -96,7 +97,8 @@ app.put('/tipo/:id', verificaToken, (req, res) => {
     let body = req.body;
 
     let descCategoria = {
-        descripcion: body.descripcion
+        descripcion: body.descripcion,
+        icono: body.icono
     };
 
     Tipo.findByIdAndUpdate(id, descCategoria, {
