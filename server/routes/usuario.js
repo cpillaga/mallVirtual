@@ -170,7 +170,6 @@ app.put("/usuarios/:id", verificaToken, (req, res) => {
 //=====================================
 //actualizar usuario sin password
 //=====================================
-
 app.put("/usuarios-sin-password/:id", verificaToken, (req, res) => {
     let id = req.params.id;
     let body = req.body;
@@ -218,6 +217,74 @@ app.put("/usuarios-sin-password/:id", verificaToken, (req, res) => {
     // grabar una categoria del listado
 });
 
+/**
+ * ADD TOKEN TO USER
+ */
+app.post('/user/FCM', verificaToken, (req, res) => {
+    let id = req.usuario._id;
+    let body = req.body;
+    let fcm = body.fcm;
+    Usuario.findById(id, (err, userDB) => {
+        if (err) {
+            return res.status(400).send({
+                statusMessage: 'Bad Request',
+                error: err
+            });
+        }
+        
+        if (!userDB.fcm.includes(fcm)) {
+            console.log('object includes'); 
+            userDB.fcm.push(fcm);
+            userDB.save((err, userDBUpdated) => {
+                if (err) {
+                    return res.status(400).send({
+                        statusMessage: 'Bad Request',
+                        error: err
+                    });
+                }
+                return res.status(200).send({
+                        statusMessage: 'Successful',
+                        user: userDBUpdated
+                });
+            });
+        } else {
+            return res.status(409).send({
+                    statusMessage: 'Conflict',
+                    message: 'Token User Already Exists',
+            });
+        }
+    });
+});
+
+/**
+ * DELETE FCM TOKEN
+ */
+app.delete('/user/fcm/:token', verificaToken, (req, res) => {
+    let token = req.params.token;
+    let id = req.usuario._id;
+    Usuario.findById(id, (err, userDB) => {
+        if (err) {
+            return res.status(400).send({
+                statusMessage: 'Bad Request',
+                error: err
+            });
+        }
+        userDB.fcm.pull(token);
+        userDB.save((err) => {
+            if (err) {
+                return res.status(400).send({
+                    statusMessage: 'Bad Request',
+                    error: err
+                });
+            }
+            return res.status(200).send({
+                    statusMessage: 'Successful',
+                    message: 'Token Deleted',
+                    token
+            });
+        });
+    });
+});
 //=====================================
 //borrar carrito
 //=====================================

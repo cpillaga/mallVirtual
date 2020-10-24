@@ -8,6 +8,9 @@ let usuarioSchema = new Schema({
         type: String,
         required: [true, 'El nombre del usuario es necesario'],
     },
+    fcm: [{
+        type: String
+    }],
     correo: {
         type: String,
         required: [true, 'El correo del usuario es necesario'],
