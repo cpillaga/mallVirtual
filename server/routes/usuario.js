@@ -1,6 +1,7 @@
 const express = require("express");
 const bcrypt = require("bcryptjs");
 const cors = require('cors');
+const fcm = require('../utils/fcm-managment');
 
 let app = express();
 const { verificaToken } = require('../middlewares/autenticacion');
@@ -259,6 +260,7 @@ app.post('/user/FCM', verificaToken, (req, res) => {
 /**
  * DELETE FCM TOKEN
  */
+// DELETE TOKEN AFTER CLOSE SESSION ON FRONT END
 app.delete('/user/fcm/:token', verificaToken, (req, res) => {
     let token = req.params.token;
     let id = req.usuario._id;
@@ -283,6 +285,56 @@ app.delete('/user/fcm/:token', verificaToken, (req, res) => {
                     token
             });
         });
+    });
+});
+
+/**
+ * SEND NOTIFICATIONS
+ */
+// Single
+app.post('/user/sendNotification', verificaToken, (req, res) => {
+    let id = req.usuario._id;
+    Usuario.findById(id, (err, userDB) => {
+        if (err) {
+            return res.status(400).send({
+                statusMessage: 'Bad Request',
+                error: err
+            });
+        }
+        fcm.userNotification(
+            userDB.fcm,
+            'TITLE NOTIFICATION',
+            'CONTENT NOTIFICATION',
+            {
+                click_action: 'FLUTTER_NOTIFICATION_CLICK',
+                type: 'USER_NOTIFICATION',
+                // ANY DATA TO SEND THROUGH NOTIFICATIONS 
+            }
+        );
+        return res.status(200).send({
+                statusMessage: 'Successful',
+                message: 'Notification Sent'
+        });
+    });
+});
+
+// Broadcast
+app.post('/users/sendNotification', verificaToken, (req, res) => {
+    let body = req.body;
+    let topic = body.token;
+    fcm.userBroadcastNotification(
+        topic,
+        'TITLE NOTIFICATION',
+        'CONTENT NOTIFICATION',
+        {
+            click_action: 'FLUTTER_NOTIFICATION_CLICK',
+            type: 'USER_NOTIFICATION',
+            // ANY DATA TO SEND THROUGH NOTIFICATIONS 
+        }
+    );
+    return res.status(200).send({
+            statusMessage: 'Successful',
+            message: 'Notification Sent'
     });
 });
 //=====================================
