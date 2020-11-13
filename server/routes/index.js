@@ -17,5 +17,8 @@ app.use(require('./compra'));
 app.use(require('./tarjeta'));
 app.use(require('./direccion'));
 app.use(require('./detalleCompra'));
+app.use(require('./pubAdmin'));
+app.use(require('./pubEmp'));
+app.use(require('./favoritos'));
 
 module.exports = app;
